@@ -8,7 +8,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # Liste des librairies à vérifier/installer
-required_libraries = ["python3-pip", "dropbox", "python3-vlc", "requests", "beautifulsoup4"]
+required_libraries = ["dropbox", "python3-vlc", "requests", "beautifulsoup4"]
 
 # Vérifie si les librairies sont installées, les installe si nécessaire
 for library in required_libraries:
