@@ -78,6 +78,7 @@ def play_videos():
             with file_lock:  # Acquérir le verrou avant d'ouvrir le fichier avec VLC
                 media = instance.media_new(os.path.join(local_folder, video_file))
                 player.set_media(media)
+            player.audio_toggle_mute()  # Désactiver l'audio
             player.play()
             player.set_fullscreen(True)
             time.sleep(1)
