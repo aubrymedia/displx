@@ -1,0 +1,7 @@
+Assigner un ID au boitier via un fichier présent dans /home/pi/
+
+Par rapport à cet ID aller chercher les bon script de config et player.
+
+Protéger le code sur le git.
+
+Protéger le code sur le boitier.
