@@ -2,23 +2,24 @@ import os
 import subprocess
 import urllib.request
 
-
 def connect_to_wifi(ssid, password):
     # Modifiez le fichier wpa_supplicant.conf pour ajouter les informations du réseau WiFi
     with open('/etc/wpa_supplicant/wpa_supplicant.conf', 'a') as f:
         f.write(f'network={{\n    ssid="{ssid}"\n    psk="{password}"\n}}\n')
-    
-    # Redémarrez le service wpa_supplicant pour appliquer les modifications
-    subprocess.run(['sudo', 'systemctl', 'restart', 'dhcpcd.service'])
-    subprocess.run(['sudo', 'systemctl', 'restart', 'wpa_supplicant.service'])
+
+    # Redémarrez les services wpa_supplicant et dhcpcd pour appliquer les modifications
+    subprocess.run(['sudo', 'systemctl', 'restart', 'dhcpcd.service', 'wpa_supplicant.service'])
 
 
 def download_and_run_script(url):
-    # Téléchargez le script à partir de l'URL
-    urllib.request.urlretrieve(url, 'player.py')
-    
-    # Exécutez le script
-    subprocess.run(['python3', 'player.py'])
+    try:
+        # Téléchargez le script à partir de l'URL
+        urllib.request.urlretrieve(url, 'player.py')
+
+        # Exécutez le script
+        subprocess.run(['python3', 'player.py'])
+    except Exception as e:
+        print(f'Une erreur s\'est produite lors du téléchargement ou de l\'exécution du script: {e}')
 
 
 # Connectez-vous au réseau WiFi
