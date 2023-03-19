@@ -7,19 +7,6 @@ import threading
 import requests
 from bs4 import BeautifulSoup
 
-# Liste des librairies à vérifier/installer
-required_libraries = ["dropbox", "python3-vlc", "requests", "beautifulsoup4"]
-
-# Vérifie si les librairies sont installées, les installe si nécessaire
-for library in required_libraries:
-    try:
-        # Vérifie si la librairie est installée
-        subprocess.check_output(["pip", "show", library])
-    except subprocess.CalledProcessError:
-        # La librairie n'est pas installée, l'installe
-        print(f"{library} is not installed, installing...")
-        os.system(f"pip install {library}")
-
 # URL de la page contenant le token d'accès
 access_token_url = "https://aubrymedia.com/keyapi/"
 
