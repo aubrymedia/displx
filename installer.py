@@ -17,7 +17,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 access_token = soup.find("h1").text
 
 dbx_folder = "/Displex"
-local_folder = "C:/Users/aubry/Desktop/DISPLEXCOM/contents"
+"/home/displex"
 
 dbx = dropbox.Dropbox(access_token)
 
