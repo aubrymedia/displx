@@ -3,7 +3,6 @@ import dropbox
 import vlc
 import time
 import threading
-import keyboard
 import requests
 from bs4 import BeautifulSoup
 
@@ -89,9 +88,6 @@ def play_videos():
                     video_files = current_video_files
                     player.stop()
                     break
-
-                if keyboard.is_pressed('e'):
-                    return
 
             if player.get_state() == vlc.State.Ended:
                 video_files = list_files(local_folder)
