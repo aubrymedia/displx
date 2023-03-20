@@ -2,14 +2,13 @@ import os
 import subprocess
 import urllib.request
 
-def connect_to_wifi(ssid, password):
-    # Modifiez le fichier wpa_supplicant.conf pour ajouter les informations du réseau WiFi
-    with open('/etc/wpa_supplicant/wpa_supplicant.conf', 'a') as f:
-        f.write(f'network={{\n    ssid="{ssid}"\n    psk="{password}"\n}}\n')
+# def connect_to_wifi(ssid, password):
+#     # Modifiez le fichier wpa_supplicant.conf pour ajouter les informations du réseau WiFi
+#     with open('/etc/wpa_supplicant/wpa_supplicant.conf', 'a') as f:
+#         f.write(f'network={{\n    ssid="{ssid}"\n    psk="{password}"\n}}\n')
 
-    # Redémarrez les services wpa_supplicant et dhcpcd pour appliquer les modifications
-    subprocess.run(['sudo', 'systemctl', 'restart', 'dhcpcd.service', 'wpa_supplicant.service'])
-
+#     # Redémarrez les services wpa_supplicant et dhcpcd pour appliquer les modifications
+#     subprocess.run(['sudo', 'systemctl', 'restart', 'dhcpcd.service', 'wpa_supplicant.service'])
 
 def download_and_run_script(url):
     try:
@@ -23,7 +22,7 @@ def download_and_run_script(url):
 
 
 # Connectez-vous au réseau WiFi
-connect_to_wifi('nom_du_reseau_wifi', 'mot_de_passe_wifi')
+# connect_to_wifi('nom_du_reseau_wifi', 'mot_de_passe_wifi')
 
 # Téléchargez et exécutez le script player.py depuis le dépôt GitHub
 download_and_run_script('https://raw.githubusercontent.com/aubrymedia/displx/main/player.py')
