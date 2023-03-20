@@ -5,3 +5,5 @@ Par rapport à cet ID aller chercher les bon script de config et player.
 Protéger le code sur le git.
 
 Protéger le code sur le boitier.
+
+Changer dropbox pour un serveur Amazon afin d'éviter les problèmes d'API.
