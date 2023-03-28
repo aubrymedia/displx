@@ -17,7 +17,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 access_token = soup.find("h1").text
 
 dbx_folder = "/Displex"
-local_folder = "/home/pi/contents"
+local_folder = "/home/pi"
 
 # Crée le dossier local si nécessaire
 if not os.path.exists(local_folder):
