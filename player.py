@@ -5,7 +5,7 @@ import dropbox
 import sqlite3
 import av
 
-access_token = "sl.BbehX_UvuwecFnZ8t_twl908tIHL8624v6gAbdQZUcbHZDVWttTisxhzV3KWdcav_K8AZRW4RhPVllPy-awcDaUBowFczVMGglLZ00_cZDgnlQG62SSqOvdoXc4ahJX7qh5ZqSU"
+access_token = "sl.Bbdki7gyMwW7fT5fldpeOxqx7hSk1lcxlem6JnnlYjfPdnhcyaxnaLzCWQRdGtfLSc6P5pXAfEJ4oMWWxiGvr6HlsSSp8g3GP8PpWl94CQwdhwXUwWQXaJEn2cclsslxb9sOHiKT"
 
 dbx_folder = "/Displex"
 local_folder = "/home/pi/contents"
