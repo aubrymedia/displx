@@ -17,7 +17,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 # Extraction du token d'accès depuis la balise H1
 access_token = soup.find("h1").text
 
-dbx_folder = "/Applications/DisplXXXX"
+dbx_folder = "/Displex
 local_folder = "/home/pi/contents"
 
 # Crée le dossier local si nécessaire
