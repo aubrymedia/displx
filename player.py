@@ -54,7 +54,7 @@ def list_files(path):
     files = []
     for entry in os.scandir(path):
         if entry.is_file() and entry.name.endswith(".mp4"):
-            files.append(entry.name)
+            files.append(os.path.join(path, entry.name))
     return files
 
 def download_videos_loop():
@@ -66,30 +66,25 @@ def play_videos():
     global file_lock
 
     while True:
-        container = av.open(local_folder)
-        video_files = [f.name for f in container.streams.video]
+        video_files = list_files(local_folder)
 
         if not video_files:
-            container.close()
             continue
 
         instance = av.Player()
 
         for video_file in video_files:
             with file_lock:  # Acquérir le verrou avant d'ouvrir le fichier avec VLC
-                stream = container.streams.video[video_file]
+                stream = av.open(video_file).streams.video[0]
                 instance.play(stream)
 
             while instance.playing:
                 time.sleep(1)
 
                 with file_lock:
-                    current_container = av.open(local_folder)
-                    current_video_files = [f.name for f in current_container.streams.video]
+                    current_video_files = list_files(local_folder)
 
                     if video_files != current_video_files:
-                        container.close()
-                        container = current_container
                         break
 
 if __name__ == "__main__":
