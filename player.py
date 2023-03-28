@@ -1,26 +1,16 @@
 import os
 import threading
 import time
-import requests
-from bs4 import BeautifulSoup
 import dropbox
 import sqlite3
 import av
 
-# URL de la page contenant le token d'accès
-access_token_url = "https://aubrymedia.com/keyapi/"
-
-# Récupération du contenu de la page
-response = requests.get(access_token_url)
-soup = BeautifulSoup(response.content, "html.parser")
-
-# Extraction du token d'accès depuis la balise H1
-access_token = soup.find("h1").text
+access_token = "sl.BbehX_UvuwecFnZ8t_twl908tIHL8624v6gAbdQZUcbHZDVWttTisxhzV3KWdcav_K8AZRW4RhPVllPy-awcDaUBowFczVMGglLZ00_cZDgnlQG62SSqOvdoXc4ahJX7qh5ZqSU"
 
 dbx_folder = "/Displex"
 local_folder = "/home/pi/contents"
 
-# Crée le dossier local si nécessaire
+# Créer le dossier local s'il n'existe pas encore
 if not os.path.exists(local_folder):
     os.makedirs(local_folder)
 
@@ -66,7 +56,7 @@ def download_videos_loop():
 
     while True:
         download_videos(cursor)
-        time.sleep(60)  # Télécharge les nouvelles vidéos toutes les 60 secondes
+        time.sleep(60)  # Télécharger les nouvelles vidéos toutes les 60 secondes
 
     conn.close()
 
