@@ -7,6 +7,12 @@ import dropbox
 import sqlite3
 import av
 
+if not os.path.exists('file_cache.db'):
+    conn = sqlite3.connect('file_cache.db')
+    cursor = conn.cursor()
+    cursor.execute('''CREATE TABLE files (name text)''')
+    conn.close()
+
 # URL de la page contenant le token d'accès
 access_token_url = "https://aubrymedia.com/keyapi/"
 
@@ -17,7 +23,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 # Extraction du token d'accès depuis la balise H1
 access_token = soup.find("h1").text
 
-dbx_folder = "/Displex
+dbx_folder = "/Displex"
 local_folder = "/home/pi/contents"
 
 # Crée le dossier local si nécessaire
