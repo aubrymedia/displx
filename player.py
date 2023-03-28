@@ -1,1 +1,13 @@
 print("Mise à jour en attente")
+print("Mise à jour en attente")
+print("Mise à jour en attente")
+print("Mise à jour en attente")
+print("Mise à jour en attente")
+print("Mise à jour en attente")
+print("Mise à jour en attente")
+print("Mise à jour en attente")
+print("Mise à jour en attente")
+print("Mise à jour en attente")
+print("Mise à jour en attente")
+print("Mise à jour en attente")
+
