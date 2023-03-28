@@ -13,11 +13,32 @@ import av
 
 # URL de la page contenant le token d'accès
 access_token_url = "https://aubrymedia.com/keyapi/"
-@@ -35,64 +35,72 @@ def list_files(path):
+
+# Dossier Dropbox contenant les vidéos à télécharger
+dbx_folder = "/"
+
+# Dossier local où stocker les vidéos
+local_folder = "/home/pi/videos"
+
+# Verrou pour empêcher la lecture de vidéos en cours de téléchargement ou de suppression
+file_lock = threading.Lock()
+
+# Obtenez le jeton d'accès à l'API Dropbox en visitant la page access_token_url
+access_token = requests.get(access_token_url).text.strip()
+
+# Instancier le client Dropbox
+dbx = dropbox.Dropbox(access_token)
+
+def list_files(path):
+    """
+    Retourne une liste de noms de fichiers dans le dossier spécifié.
+    """
+    files = []
+    for entry in os.scandir(path):
+        if entry.is_file():
             files.append(entry.name)
     return files
 
-def download_videos():
 def download_videos(cursor):
     global file_lock
 
