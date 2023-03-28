@@ -100,6 +100,9 @@ def play_videos():
                         container = current_container
                         break
 
+        container.close()  # Fermer le conteneur avant de contin
+
+
         container.close()
 
 if __name__ == "__main__":
