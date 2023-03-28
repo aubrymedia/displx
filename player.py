@@ -100,8 +100,6 @@ def play_videos():
                         container = current_container
                         break
 
-        container.close()  # Fermer le conteneur avant de contin
-
 if __name__ == "__main__":
     download_thread = threading.Thread(target=download_videos_loop)
     download_thread.start()
