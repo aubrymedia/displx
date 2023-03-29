@@ -16,7 +16,7 @@ soup = BeautifulSoup(response.content, "html.parser")
 # Extraction du token d'accès depuis la balise H1
 access_token = soup.find("h1").text
 dbx_folder = "/Displex"
-local_folder = "C:/Users/aubry/Desktop/DISPLEXCOM/contents"
+local_folder = "/home/pi/displex"
 
 dbx = dropbox.Dropbox(access_token)
 
