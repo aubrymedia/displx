@@ -7,13 +7,10 @@ displex_folder = "/home/pi/displex"
 if not os.path.exists(displex_folder):
     os.makedirs(displex_folder)
 
-# Chemin des fichiers config.py et player.py
-config_path = os.path.join(displex_folder, "config.py")
+# Chemin du fichier player.py
 player_path = os.path.join(displex_folder, "player.py")
 
-# Supprimer les fichiers config.py et player.py s'ils existent
-if os.path.exists(config_path):
-    os.remove(config_path)
+# Supprimer le fichier player.py s'il existe
 if os.path.exists(player_path):
     os.remove(player_path)
 
