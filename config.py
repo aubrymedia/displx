@@ -12,6 +12,6 @@ player_path = os.path.join(displex_folder, "player.py")
 
 # Télécharger le fichier player.py depuis le dépôt GitHub et remplacer la version existante s'il y en a une
 os.system(f"wget -O {player_path} https://raw.githubusercontent.com/aubrymedia/displx/main/player.py")
-
+print("CEST BON")
 # Exécuter le script player.py
 #os.system(f"python3 {player_path}")
